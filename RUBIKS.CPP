@@ -1744,16 +1744,16 @@ void solphase5(Cube &endstate)
 			switch(t)
 			{
 				case 45:
-					sp5p1(s.head1->next->next);
-					break;
-				case 47:
 					sp5p1(s.head1->next);
 					break;
+				case 47:
+					sp5p1(s.head1);
+					break;
 				case 51:
-					sp5p1(s.head1->prev);
+					sp5p1(s.head1->next->next);
 					break;
 				case 53:
-					sp5p1(s.head1);
+					sp5p1(s.head1->prev);
 					break;
 			}
 		else if(j==2)
@@ -1761,7 +1761,7 @@ void solphase5(Cube &endstate)
 			p=s.head1;
 			while(Moves::getcube()->getface(p->num*9+8).getrow(p->num*9+8).getsquare(p->num*9+8).getcolor()!=bcolor)
 				p=p->next;
-			sp5p1(p->prev);
+			sp5p1(p->next);
 		}
 	}
 }
@@ -1854,8 +1854,6 @@ void solphase7(Cube &endstate)
 			else
 				p=p->next;
 		}while(p!=s.head1 && t==0);
-		cout<<t<<" "<<p->num;
-		getch();
 		if(t==0)
 			sp7p1(s.head1,0);
 		else if(t==1)
