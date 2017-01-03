@@ -690,7 +690,7 @@ template <class T>
 	{
 		x=new T[size];
 		if(x==NULL)
-			/*throw*/ cout<<"The required memory wasnt alloted";
+			cout<<"The required memory wasnt alloted";
 		return x;
 	}
 template <class T>
@@ -698,17 +698,10 @@ template <class T>
 	{
 		x=new T;
 		if(x==NULL)
-			/*throw*/ cout<<"The memory wasnt alloted to the desired object\n";
+			cout<<"The memory wasnt alloted to the desired object\n";
 		return x;
 	}
-/*template<>
-	Moves* allotspace<Moves>(Moves *x)
-	{
-		x=new Moves;
-		if(x==NULL)
-			throw "The Move object wasn't alloted the memory";
-		return x;
-	}*/
+
 int curclr,validate,backspace=0;
 Stack<Linkmoves> stck;
 void mouseinitialize();
@@ -766,7 +759,7 @@ int main()
 		mouseinitialize();
 		click1(rubik);
 		hidepointer();
-	}while(/*rubik.getcount()!=54 || */validate==0);
+	}while(rubik.getcount()!=54 || validate==0);
 	Moves :: addcube(&rubik);
 	for(i=0;i<6;i++)
 	{
@@ -815,14 +808,6 @@ void cube2d(Cube *rubik)
 {
 	int x;
 	Draw *a;
-	/*try
-	{
-		a=allotspace(a);
-	}
-	catch(const char* msg)
-	{
-		cerr<<msg<<endl;
-	}*/
 	a=allotspace(a);
 	Quad s;
 	a->setshape(&s);
@@ -858,14 +843,6 @@ void buttons1(Cube &rubik)
 	int col;
 	char colname[7];
 	Draw *a;
-	/*try
-	{
-		a=allotspace(a);
-	}
-	catch(const char* msg)
-	{
-		cerr<<msg<<endl;
-	}*/
 	a=allotspace(a);
 	Quad s;
 	a->setshape(&s);
@@ -1174,14 +1151,6 @@ int gotoprevstate()
 void movingtemplate(int m,int c)
 {
 	Moves *a;
-	/*try
-	{
-		a=allotspace(a);
-	}
-	catch(const char* msg)
-	{
-		cerr<<msg<<endl;
-	}*/
 	a=allotspace(a);
 	char s[2],d;
 	int x;
